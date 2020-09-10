@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Fliper | Reviews</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAS1BMVEX///+AAIB7AHt2AHbw6PDCoMKRO5H//f95AHm7h7vLocuzhbOPK4/38/e+mL5wAHDZxNmwgLCxfLGHH4fCksKLHovRqtGNMI3JqsmSjkJ2AAABYklEQVR4nO3dS1LCQABFUQyi+AFU/O1/pc4cUwkVbuDcFbwz7u7q1Wpcu/1m5t5GLh3b/WGYt/X73ML13bwNL4SEhISEhISEhISEhISEhISEhISEhISEhISEhIR14dnOgD+iwoeZd50vwn/h46WXjo2QsB8hYT9Cwn6EhP0ICfsREvYjJOxHSNiPkLAfIWE/QsJ+hIT9CAn7ERL2IyTsR0jYj5CwH+ENCS89dHSnCo9PE/pcgnDKq6Dt1yKEU3olJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkXJRw2I5vEWfAx+cJfS9BeP13MW7gPg1hNkLCfoSE/QgJ+xES9iMk7EdI2I+QsB8hYT9Cwn6EhP0ICfsREvYjJOxHSNiPkLAfIWE/QsJ+hIT9CAn7ERL2IyTsR0jYj5CwHyFhP0LCfoSE/QgJ+xES9iMk7Ed4BcLDaZ80/ixWuNtvTur30kNXfw/gT52/+Q7JAAAAAElFTkSuQmCC"
+        type="image/x-icon">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body style="background-color:#e5e0e9;">
+
+    <div class="sidenav">
+        <h1 style="color: #571496;padding-left: 25px;padding-bottom: 10px;">Fliper</h1>
+        <button type="button" class="btn btn-outline-light"><a style="color: #571496;padding-left: 5px;" href="{% url 'add' %}" class="nav-link ">Add Review</a></button>
+        <button type="button" class="btn btn-outline-light" style="width: 160px;"><a href="{% url 'logout'  %}" style="color: #571496;">Logout</a></button>
+        <button type="button" class="btn btn-outline-light"><a href="{% url 'profile' %}" style="color: #571496;">My Profile</a></button>
+
+    </div>
+    <div class="main">
+        <div class="jumbotron jumbotron-fluid h-100">
+            <div style="padding-top: 0px;" class="container">
+                <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'results' %}">
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="looking for a product?" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" value="{{ query|escape }}" type="submit">Search</button>
+                </form>
+                {% for post in all_posts %}
+
+
+                <h3 style="padding-top: 20px;">{{ post.title }} :</h3>
+
+                <p class="lead">{{ post.author }} | {{ post.created_on}}</p>
+
+                <p>{{post.content }}</p>
+                <br> {% if post.productimage %}
+
+
+                <img src="{{ post.productimage.url }}" style="width: 200px;height: 350p;margin-left: 40px;"> {% else %}
+
+                <img style="width: 200px;height: 350p;margin-left: 40px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALkAAAB7CAMAAAAfU9HRAAAAUVBMVEXk5OSCgoLl5eV7e3vh4eHo6Oh/f3/e3t6dnZ2QkJDIyMja2trX19fLy8vDw8Nzc3OqqqqXl5eysrKKiorR0dG4uLijo6Nubm7w8PBoaGhgYGAer7uZAAAKdUlEQVR4nO2ci3qjuA6AsYxsHO4YCLPv/6BHkoFwazJthzQ9XzQ7zTQQ80foZltsFL3lLT8vAPDTCF8SjGxq8ReyY5447xqLPw3ySQHotTGK/uui38WOnVZBTN0Ov8hkIDNCLT9Mn/4ec8dEoH1QvPYF/BKTwQsjmwK6id21vyJCgnWGDRwB00pPJvMbogw2ovKMtAzY1ma0+dePMpAyqmkCJ0Zd8FSl68uLeyr0bCvOjpSAthrVbqrsldnxwpj6cjMNwLwePfWVTQYicc+EAbnkAtYyRoUPJmNcHr2o2sfs2TKvLfq+71Jcm8yLJibIPFsFuyeSnllUByHKuJeOMpI9jY9hUbroSkCBvsqUmC74auyYh+yJEbRGTaKLMULaZjaZF4syY/ZM2DP7G7mp4/E45n1QuzGvZTLYSERMCdx6dRPJp+EMmKOMz1+nlgGrp+wJ2QJc6fymX4yqKakmr2MyIXumcI+conw21TK+i1/CZMbsKe74kbWIAF4WUeYF1I4qFLfyy8ZD13iwiDLJzyemEMB9GziWUdEUO5sAzPqJ/acXCBbZU4S+iJkz0YFWF1Hmh01mnHveIh0WTlPy1yH7H30iasZJtk7an2PHVm/sArjiSrji+giKTCYZZ3uqic9mR4RDsY4B+vWbONCf8QN4REZRxo3BXRWnJlWq+KrkUGrPUh8fZOkPHfFZUQZsos0HMoaRj0Wb5kipiyijq/gs9LifKtcvid5HR2GHi5/qgZPQbyX3F8VPuXQTbRC6wK77c2w9BD6jvyRTZcC+inG2JmSTEa2YU5QOkeittV+SznCeGgi6qHzpdoNjztFpuWbwD8mByV10HBYfCOZc1FR5VXteWffZTrcDL4194Ar/hvx2Pz9zY0EKSc6qYvH7UiZUl6t6+J/JmhyHIRqGv77OSD6HmV2EDPOpk+x8QQ5R4cqyrIu/VfyG3LgN+Vg9dKfElgU52JA9aBL/l+gbcqXXygVIVquRZ5FD5ObFlPqL5Osggp05zcqX5OE66gNf+yvydSkAsZ9XI88kh9jdmarJqbvaaUdeL49iJfOp9KSy5UaeLauAg+tB1G2/zpZ8FdGhlS/TnVVv3cjbckFu2p1+oS/rja/tyFWxyAvBPU8rchc6X5KrbToEoHtP1rAOHlty0yzmfXrvs+eQLxdTdpGMApyE5rXW9+RzRIeUh6P4eposouJyMaXaglfjoueq2N5bi5m+2Zg995XMGeSZn9CNX6scov4W6hfoe/LJOlC22vU52XNLHuFlXNU0qsX1OdUt7iwD5oHOq5G8Fvc8bSK3JidFJYzt+3QDnpgF3ELrB+ROjmEhtnKee27IaQLWFl2RrVsRIKrW872bre/JQ0QPWU2flT0PyMf5xeaE3qi1zAZzQC51Q9hqV2dlzyPyg+PRwdLAhH5AzvMfPDl73iG/5T3AZKvxgC7B58DOpcpMTnfPY3LAbootOxtf2/pBVKRPhk6Ycyafd8kByEoD+iaq7Axmn0MpKI7FbX/2Ou5+Bs3Zz3ieDhza+Kzd/qhWJKcM2XNX+JxODmPaJq3f0bgSO97PiWS3V/51ZvY8JB/BuQBo4QMbv5nLdgbN20lhq323aHQuObd/NHNPor+n8bAHvdU5u+cTsueenJ1zQXsX/ICcmxjGrfaT1kA/JF9o/LEsrGX6kIUpe57unmtyCYefIQ86N1VoR+MFodBHerwbcB757JyfJh9SZ4xJeDipcc7Onlvy6DMaX1gLZR/A3JfZ5J4nzj0PyaH93N7FQuccC+2F1/+fkz3/GXlipR1tKm4PVtHPJi8fsO7Ip9jiOykuQxPJfin6BcmneG50nRP7OPd8Vuvi962FM5FRlZ3bvJ8D/i3yZd2iTROWhp7WHLIgv35uR/FWK46LSPIje1oH2iKex5+UaIqK1VzinLSx8oj8s3uKM/nQeh22g4+W3U8m/9Z+KMJQOGWMa57ZigMRO5Zv469sQcdhD1pyaH7Jn/xcWojCX9v2DzYSOgIBn90d+v1ei3OXsu4IfLO/5TmV4SF5/HFP0UPRz4yDe/QP+7geynEf1xPly836h71zb3nLW97ylrf8/wjA6gWXBamslEy/b1/HiVI0T5g2Qy5Ph+VVlhtm80njZW9v7Hdft+A2C71xmZxv86KdJwFxZumdLGwSxlkaja/Tl7RZ26bcQ5KxpPOYWQbTuFGUZjJ6GIR+oQHi6cTbmG2eyWrYOPg45N3GOqz+yNpfUxIlNEqrcmr+wcufArG5ynY9NFdpxMLuOjYCxJW/6rKkU/qS5JpMPSD5VadUqf0nj3ZZmsdGg7vKisWgFI3631T7YlHKXjS9hssClmFXHfurDHmvZuL1vlw2zSy3TVQ2butxCwpzwoLGaFZh7MJScuS8dENB5kyV2ZQ7ASrfpqSgacQ+LJd77sTBCw0GVnuZYwzO0TvXqdUPEi87o0SeR1licsBxTQYrI0Pe17n3TpplLOb8OA1g5I3YYiCn46Q8mg/XjtcisrKQxz8x0bxDxz1zNESKN3eIfeUSuYsZH7vy7q9q9GVHTl+o80kgbxFb+hYL8viRnWPlirJDIa+0WBl2pUwfA3nvejIPTJJKHl9tTJoo3oC4VvODREw+17RYmLah20R64MVQUw9RVNexIK3JsdBZpUlJgbzTK53H+KBMxkrZxGRiLc6H3eU2PFQr5HGSXEyOVnWNsty42PMl5DoYQgAP0XRNM3bUkbFgdiXomDSPl/KCkJlu6Lm7dUNe11EuXQx0G7vedLAkb0jurlnTZePWJGTONvJuJFfVbC1xnUSqwUKlnUkBcprNZ6rie9RSUEmc62O6jHPOF2NUoKPgaCQaOePbQcZSxjQW+eWKHFLfYSyGVWhXe91FC3LNQ14ekFsyyaJb6by56dz1Q+2jpB46MgFodNL3ylm5t1FcFGT9gjfZJGm57nvH5tKWhfU93RPy5T5hphU58dZ9xa4r1hI3bLRrO79nLEJON9axnfdanoYgHeUzufXVQK6vi6HgXgnvq75i52zZzgGHfiSfx0tUT2dwAwuquqWRyBFr+pCjkybycHcSRW/37JdMDqjrNfld7pEcL8Yrji09x5bY+ND/xOQpmYr1jo5eaHhS44AYl2QuTmILjuRTbIGUTYm+YR2TxetKyTPp5H/0xYuZXJ7ysrqisdC4IXhorBMhl6U99tCHsUU2WXvN/keXsjavx/1tIc84uNP7FCuu+VCF/2FIbeigUk2WZmIt6sIZbzQBidCVbskIZIcrrqVphKNLIC8LOrkFxmWHLi3Hc9smrH2V8LF06E3LQ963c26ABOvFsBpV6qubfJ/JW06SheIIcS1ASTaSsMnNdNfyqirG5CSqJaknSpoEM7otPGgLk9cMtbaDF3I5nb+zLPmSaiiH6pJcHEDxsT8VhSI+R93LoWDT2wvdQiog5keVYypK6C/9S/Ij1RtpyGoxv0LExYXlD6Ui8pnxjCiV59H5vTgUMFLI8LtxODuezyQ/47KHLwvhmB2HvP9AwKZWXBd949/5x5woVycvC7tVRbkrGhenr86cPw/zwYe14lve8pa3vOUtb3nLW/69/A9a3YodEzBMsAAAAABJRU5ErkJggg=="
+                    alt=""> {% endif %}
+                <br>
+
+
+                <hr class="my-2"><br> {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    <style>
+        .sidenav {
+            height: 100%;
+            /* Full-height: remove this if you want "auto" height */
+            width: 160px;
+            /* Set the width of the sidebar */
+            position: fixed;
+            /* Fixed Sidebar (stay in place on scroll) */
+            z-index: 1;
+            /* Stay on top */
+            top: 0;
+            /* Stay at the top */
+            left: 0;
+            background-color: #e5e0e9;
+            /* Black */
+            overflow-x: hidden;
+            /* Disable horizontal scroll */
+            padding-top: 20px;
+        }
+        /* The navigation menu links */
+        
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            display: block;
+        }
+        /* When you mouse over the navigation links, change their color */
+        
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+        /* Style page content */
+        
+        .main {
+            margin-left: 160px;
+            /* Same as the width of the sidebar */
+        }
+        /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

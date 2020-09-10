@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Fliper</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAS1BMVEX///+AAIB7AHt2AHbw6PDCoMKRO5H//f95AHm7h7vLocuzhbOPK4/38/e+mL5wAHDZxNmwgLCxfLGHH4fCksKLHovRqtGNMI3JqsmSjkJ2AAABYklEQVR4nO3dS1LCQABFUQyi+AFU/O1/pc4cUwkVbuDcFbwz7u7q1Wpcu/1m5t5GLh3b/WGYt/X73ML13bwNL4SEhISEhISEhISEhISEhISEhISEhISEhISEhIR14dnOgD+iwoeZd50vwn/h46WXjo2QsB8hYT9Cwn6EhP0ICfsREvYjJOxHSNiPkLAfIWE/QsJ+hIT9CAn7ERL2IyTsR0jYj5CwH+ENCS89dHSnCo9PE/pcgnDKq6Dt1yKEU3olJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkXJRw2I5vEWfAx+cJfS9BeP13MW7gPg1hNkLCfoSE/QgJ+xES9iMk7EdI2I+QsB8hYT9Cwn6EhP0ICfsREvYjJOxHSNiPkLAfIWE/QsJ+hIT9CAn7ERL2IyTsR0jYj5CwHyFhP0LCfoSE/QgJ+xES9iMk7Ed4BcLDaZ80/ixWuNtvTur30kNXfw/gT52/+Q7JAAAAAElFTkSuQmCC"
+        type="image/x-icon">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body style="background-color:#571496 ;">
+    <nav class="navbar fixed-top navbar-expand-sm" style="background-color: #571496;">
+        <h1 style="color: white;">FLIPER</h1>
+
+    </nav>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container" style="padding-top: 50px;">
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group ">
+                    <label for="firstn">First Name :</label>
+                    <input value="{{ user.first_name }}" style="width: 350px; " type="text " class="form-control " name="firstn" id="firstn" aria-describedby="helpId " placeholder="Enter your first name ">
+                </div>
+                <div class="form-group ">
+                    <label for="lastn">Last Name :</label>
+                    <input value="{{user.last_name}}" style="width: 350px; " type="text " class="form-control " name="lastn" id="lastn" aria-describedby="helpId " placeholder="Enter your last name here ">
+                </div>
+                <div class="form-group">
+                    <label for="newusername">Username :</label>
+                    <input style="width: 350px;" value="{{user.username}}" type="text" name="newusername" id="newusername" class="form-control" placeholder="" aria-describedby="helpId">
+                </div>
+                <div class="form-group ">
+                    <label for="ema">E-Mail :</label>
+                    <input value="{{ user.email}}" style="width: 350px; " type="email" class="form-control " name="ema" id="ema" aria-describedby="emailHelpId " placeholder="Enter your E-Mail here ">
+                </div>
+                <div class="form-group">
+                    <label for="passwo">Password :</label>
+                    <input style="width: 350px; " type="password" class="form-control" name="passwo" id="passwo" placeholder="Enter Your Password">
+                    <small class="form-text text-muted">Make it as hard as possible.</small>
+                </div>
+                <div class="form-group">
+                    <label for="password2">Password Conformation :</label>
+                    <input style="width: 350px; " type="password" class="form-control" name="password2" id="password2" placeholder="Enter Your Password again">
+                    <small class="form-text text-muted">Capital letters will effect your password confirmation.</small>
+                </div>
+                <br>
+                <p style="color: rgb(211, 46, 46);"><strong>Note :</strong> all the other information which not included in this form are not editable </p>
+                <br>
+                <button type="submit" class="btn btn-lg" style="background-color: #571496;color: white;float: right;">Save</button>
+                <br><br>
+            </form>
+        </div>
+    </div>
+    <p style="color: white;float: right;margin-right: 75px;">Contact us on: +249 110070067 or +249 117250201 <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All Rights Reserved to <strong>Fliper</strong> Inc. 2020 &copy;</p>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

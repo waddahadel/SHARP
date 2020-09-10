@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Fliper | Home</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAS1BMVEX///+AAIB7AHt2AHbw6PDCoMKRO5H//f95AHm7h7vLocuzhbOPK4/38/e+mL5wAHDZxNmwgLCxfLGHH4fCksKLHovRqtGNMI3JqsmSjkJ2AAABYklEQVR4nO3dS1LCQABFUQyi+AFU/O1/pc4cUwkVbuDcFbwz7u7q1Wpcu/1m5t5GLh3b/WGYt/X73ML13bwNL4SEhISEhISEhISEhISEhISEhISEhISEhISEhIR14dnOgD+iwoeZd50vwn/h46WXjo2QsB8hYT9Cwn6EhP0ICfsREvYjJOxHSNiPkLAfIWE/QsJ+hIT9CAn7ERL2IyTsR0jYj5CwH+ENCS89dHSnCo9PE/pcgnDKq6Dt1yKEU3olJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkXJRw2I5vEWfAx+cJfS9BeP13MW7gPg1hNkLCfoSE/QgJ+xES9iMk7EdI2I+QsB8hYT9Cwn6EhP0ICfsREvYjJOxHSNiPkLAfIWE/QsJ+hIT9CAn7ERL2IyTsR0jYj5CwHyFhP0LCfoSE/QgJ+xES9iMk7Ed4BcLDaZ80/ixWuNtvTur30kNXfw/gT52/+Q7JAAAAAElFTkSuQmCC"
+        type="image/x-icon">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body style="background-color:#571496 ;">
+
+    <nav class="navbar fixed-top navbar-expand-sm" style="background-color: #571496;">
+        <h1 style="color: white;">FLIPER</h1>
+
+    </nav>
+    <div style="background-color:#f2f5f4;" class="jumbotron jumbotron-fluid">
+        <div style="padding-top: 40px;" class="container">
+            <h1 class="display-3">Welcome to Fliper!</h1>
+            <p class="lead"><span style="font-weight: bold;">Fliper</span><sub>&copy;</sub> is an online blog that helps people to benefit from others experiences with all types of products and share their own experience to make shopping alot easier </p>
+            <hr class="my-2">
+
+            <div id="demo" class="carousel slide" data-ride="carousel">
+
+                <!-- Indicators -->
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+
+                <!-- The slideshow -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://img.freepik.com/free-photo/multi-ethnic-people-entrepreneur-small-business-concept-woman-showing-coworkers-something-laptop-computer-as-they-gather-around-conference-table_146671-6320.jpg?size=626&ext=jpg" alt="thousands of users" style="width: 100%;height: 460px;">
+                        <div style="position: relative;left: 0;top: 0;" class="bg-dark carousel-caption">
+                            <h3>Interract</h3>
+                            <p style="text-transform: capitalize;font-family: 'Courier New', Courier, monospace;">with thousands of users using Fliper</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.truthfinder.com/infomania/post-image/2015/04/Public-Wifi-Safety.jpg" alt="largest community online" style="width: 100%;height: 460px;">
+                        <div style="position: relative;left: 0;top: 0;" class="bg-dark carousel-caption">
+                            <h3>Brilliant Experience</h3>
+                            <p style="text-transform: capitalize;font-family: 'Courier New', Courier, monospace;">no ads allowed!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://steamuserimages-a.akamaihd.net/ugc/257090545236492722/4ACF468421927206767D57F9A5ACE55839098F86/" alt="100% free" style="width: 100%;height: 460px;">
+                        <div style="position: relative;left: 0;top: 0;" class="bg-dark carousel-caption">
+                            <h3>The Big Surprise!</h3>
+                            <p style="text-transform: capitalize;font-family: 'Courier New', Courier, monospace;">no subscription fees,all for free!</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+
+            </div>
+
+
+
+            <a style="float: right;margin-top: 10px;background-color:#571496 ;color: white;" class="btn  btn-lg" href="{% url 'register' %}" role="button">Sign Up</a>
+            <a style="float: left;margin-top: 10px;background-color:#571496;color: white;" class="btn  btn-lg" href="{% url 'login' %}" role="button">Already have an account</a>
+            <br><br>
+        </div>
+    </div>
+    <p style="color: white;float: right;margin-right: 75px;">Contact us on: +249 110070067 or +249 117250201 <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All Rights Reserved to <strong>Fliper</strong> Inc. 2020 &copy;</p>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
