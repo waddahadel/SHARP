@@ -1,1 +1,1 @@
-web: gunicorn Fliper.wsgi
+web: gunicorn Fliper.wsgi --log-file -
