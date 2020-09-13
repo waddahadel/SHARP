@@ -49,7 +49,7 @@ def register(request):
                 else:
                     user= User.objects.create_user(username=username,password=password,email=email,first_name=first_name,last_name=last_name)
                     user.save()
-                    extra=extrainfo(gender=gender,user=user,Nationality=country,dayofbirth=dayofbirth,monthofbirth=monthofbirth,yearofbirth=yearofbirth,profileimage=profilepicture)
+                    extra=extrainfo(gender=gender,user=user,Nationality=country,dayofbirth=dayofbirth,monthofbirth=monthofbirth,yearofbirth=yearofbirth)
                     extra.save()
                     #login after registration
                     auth.login(request,user)
