@@ -224,7 +224,7 @@ class Post(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    productimage=models.ImageField(null=True,blank=True,default='/images/product.jpg',upload_to="media/images/")
+    productimage=models.ImageField(null=True,blank=True,default='/images/product.jpg',upload_to="images/")
     class Meta:
         ordering = ['-created_on']
 
